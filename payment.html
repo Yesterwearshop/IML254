@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>payment</title>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width,initial-scale=1"/>
+      <meta name="robots" content="index,follow"/>
+      <meta name="generator" content="GrapesJS Studio"/>
+      <link rel="stylesheet" href="./style.css">
+   </head>
+   <body id="ilouwoy">
+      <header>
+         <img src="https://cdn.grapesjs.com/workspaces/cmqmap9nm0g0ficq35ltqq34j/assets/32f87a46-1ebb-4cfa-9aa2-1d634907cfa6__logo.jpg" alt="Logo" id="ir9zgmu"/>
+         <h1>Yesterwear!</h1>
+      </header>
+      <nav>
+         <a href="index.html">Home</a>
+         <div class="dropdown">
+            <a href="catalog.html">Catalogue ▾</a>
+            <div class="dropdown-menu"><a href="streetwear.html">Streetwear</a><a href="knitwear.html">Knitwear</a><a href="smartcasual.html">Smart Casual</a><a href="sportswear.html">Sportswear</a><a href="shoes.html">Shoes</a><a href="bags.html">Bags</a><a href="caps.html">Caps</a></div>
+         </div>
+         <a href="promo.html">Sales</a><a href="sell.html">Sell yours</a><a href="feedback.html">Feedback</a><a href="style.html">How to style</a><a href="cart.html">View Cart</a>
+      </nav>
+      <div id="ihglkde" class="payment-wrapper">
+         <div class="payment-form-section">
+            <div class="payment-block">
+               <h3>Delivery Details</h3>
+               <div class="form-group"><label>Full Name</label><input type="text" id="f-name" placeholder="e.g. Siti Aisyah"/></div>
+               <div class="form-group"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="e.g. 011-1234 5678"/></div>
+               <div class="form-group"><label>Delivery Address</label><textarea id="f-address" rows="3" placeholder="e.g. No. 12, Jalan Bahagia, Taman Maju"></textarea></div>
+               <div class="form-row">
+                  <div class="form-group"><label>Postcode</label><input type="text" id="f-postcode" placeholder="e.g. 40150"/></div>
+                  <div class="form-group">
+                     <label>State</label>
+                     <select type="text" id="f-state">
+                        <option value="">Select state</option>
+                        <option>Johor</option>
+                        <option>Kedah</option>
+                        <option>Kelantan</option>
+                        <option>Melaka</option>
+                        <option>Negeri Sembilan</option>
+                        <option>Pahang</option>
+                        <option>Perak</option>
+                        <option>Perlis</option>
+                        <option>Pulau Pinang</option>
+                        <option>Sabah</option>
+                        <option>Sarawak</option>
+                        <option>Selangor</option>
+                        <option>Terengganu</option>
+                        <option>Kuala Lumpur</option>
+                        <option>Labuan</option>
+                        <option>Putrajaya</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="payment-block">
+               <h3>Payment Method</h3>
+               <div class="payment-methods">
+                  <div id="option-fpx" class="payment-option">
+                     <div class="payment-option-header"><input type="radio" name="payment" id="fpx" value="fpx"/><label for="fpx"><span class="payment-icon">🏦</span><span>Online Banking (FPX)</span></label></div>
+                     <div id="body-fpx" class="payment-option-body">
+                        <div class="form-group">
+                           <label>Select Bank</label>
+                           <select type="text" id="f-bank">
+                              <option value="">Choose your bank</option>
+                              <option>Maybank2u</option>
+                              <option>CIMB Clicks</option>
+                              <option>Public Bank</option>
+                              <option>RHB Bank</option>
+                              <option>Hong Leong Bank</option>
+                              <option>AmBank</option>
+                              <option>Bank Islam</option>
+                              <option>Bank Rakyat</option>
+                              <option>BSN</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="option-ewallet" class="payment-option">
+                     <div class="payment-option-header"><input type="radio" name="payment" id="ewallet" value="ewallet"/><label for="ewallet"><span class="payment-icon">📱</span><span>E-Wallet (Touch 'n Go / GrabPay)</span></label></div>
+                     <div id="body-ewallet" class="payment-option-body">
+                        <div class="ewallet-options">
+                           <div class="ewallet-choice"><input type="radio" name="ewallet-type" id="tng" value="tng"/><label for="tng">Touch 'n Go eWallet</label></div>
+                           <div class="ewallet-choice"><input type="radio" name="ewallet-type" id="grabpay" value="grabpay"/><label for="grabpay">GrabPay</label></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <button type="button" class="confirm-btn" onclick="confirmOrder()">
+				Confirm Order
+			</button>
+         </div>
+         <div class="payment-summary-section">
+            <div class="summary-box">
+               <h3>Order Summary</h3>
+               <div id="payment-items" class="summary-items"></div>
+               <div class="summary-divider"></div>
+               <div class="summary-row"><span>Subtotal</span><span id="pay-subtotal">RM 0</span></div>
+               <div class="summary-row"><span>Shipping</span><span>RM 5</span></div>
+               <div class="summary-divider"></div>
+               <div class="summary-row summary-total"><span>Total</span><span id="pay-total">RM 5</span></div>
+            </div>
+         </div>
+      </div>
+      <div id="success-modal">
+         <div id="ikm8hrg">
+            <div id="igz65hf">✅</div>
+            <h2 id="i79kf1o">Order Confirmed!</h2>
+            <p id="irc3q9t">Thank you for your purchase.</p>
+            <p id="modal-order-id"></p>
+            <p id="modal-total"></p>
+            <a href="home.html" id="iocncnh">Back to Home</a>
+         </div>
+      </div>
+      <footer id="footer-section-2-13" class="main-footer">
+         <div id="ih7xv9c-2-13" class="footer-inner">
+            <div id="izku7hu-2-13" class="footer-col brand-info">
+               <div id="i8ohnns-2-13" class="brand-header">
+                  <div id="ichtj9d-2-13" class="brand-logo-circle">T</div>
+                  <div id="im87rlf-2-13" class="brand-titles">
+                     <h2 id="i436fmq-2-13" class="brand-main-title">Yesterwear</h2>
+                     <span id="ihs7ihe-2-13" class="brand-tagline">THRIFT SHOP</span>
+                  </div>
+               </div>
+               <p id="ixqac0h-2-13" class="brand-desc">
+                  Vintage clothing, modern staples, and soulful objects for wardrobes and homes that want a little more story.
+               </p>
+               <div id="ipj15qt-2-13" class="social-icon-row"><a href="https://www.instagram.com/ain.khly" target="_blank" rel="noopener" id="ioti1q9-2-13" class="social-circle-btn"><img src="https://api.iconify.design/lucide-instagram.svg?color=%235f4b3a" alt="Instagram" id="i8e8vw8-2-13"/></a><a href="https://www.facebook.com/share/1CWMEqjqzW/" target="_blank" rel="noopener" id="iifz4s7-2-13" class="social-circle-btn"><img src="https://api.iconify.design/lucide-facebook.svg?color=%235f4b3a" alt="Facebook" id="il72ig5-2-13"/></a><a href="https://www.google.com/maps/search/?api=1&amp;query=No.+12%2C+Jalan+Thrift%2C+Shah+Alam" target="_blank" rel="noopener" id="i7tsu7f-2-13" class="social-circle-btn"><img src="https://api.iconify.design/lucide-map-pin.svg?color=%235f4b3a" alt="Location" id="i9frq7t-2-13"/></a></div>
+            </div>
+            <div id="igia0qz-2-13" class="footer-col">
+               <h3 id="ihj8mpa-2-13" class="col-heading">Hours</h3>
+               <ul id="iy45glp-2-13" class="info-list muted-text">
+                  <li id="i5hfbsi-2-13">Mon–Fri: 10 AM – 10 PM</li>
+               </ul>
+		<a href="terms.html" class="terms-btn">Privacy Policy &amp; Terms</a>
+            </div>
+            <div id="ikwfg5r-2-13" class="footer-col">
+               <h3 id="idy3jml-2-13" class="col-heading">Visit</h3>
+               <ul id="icdgcdj-2-13" class="info-list muted-text">
+                  <li id="icczcub-2-13">No. 12, Jalan Thrift</li>
+                  <li id="i1u26ef-2-13">Shah Alam</li>
+                  <li id="i3iljyf-2-13"><a href="mailto:yesterwearshopp@gmail.com" class="footer-link">yesterwearshopp@gmail.com</a></li>
+                  <li id="idvg3pd-2-13"><a href="https://wa.me/601110539631" target="_blank" rel="noopener" class="footer-link">011-1053 9631</a></li>
+               </ul>
+            </div>
+            <div id="if5l5og-2-13" class="footer-col">
+               <h3 id="isdrc2s-2-13" class="col-heading">Get restock alerts</h3>
+               <p id="iwi75at-2-13" class="text-dark">
+                  Be first to know about new drops, specials, and shop events.
+               </p>
+               <div id="iqshkqi-2-3" class="back-to-top-wrapper">
+  <button type="button" id="iai9p38-2-3" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    BACK TO TOP
+  </button>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script>
+         function loadSummary() {
+           const cart = JSON.parse(localStorage.getItem('yw_cart') || '[]');
+           const itemsEl = document.getElementById('payment-items');
+           itemsEl.innerHTML = cart.map(i => `
+         <div class="summary-item">
+         <span>${i.name} × ${i.qty}</span>
+         <span>RM ${(i.price * i.qty).toFixed(2)}</span>
+         </div>
+         `).join('');
+           const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+           document.getElementById('pay-subtotal').textContent = 'RM ' + subtotal.toFixed(2);
+           document.getElementById('pay-total').textContent = 'RM ' + (subtotal + 5).toFixed(2);
+         }
+         
+         document.querySelectorAll('input[name="payment"]').forEach(radio => {
+           radio.addEventListener('change', () => {
+             document.querySelectorAll('.payment-option-body').forEach(b => b.style.display = 'none');
+             document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+             document.getElementById('body-' + radio.value).style.display = 'block';
+             radio.closest('.payment-option').classList.add('selected');
+           });
+         });
+         
+         function confirmOrder() {
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const address = document.getElementById('f-address').value.trim();
+    const postcode = document.getElementById('f-postcode').value.trim();
+    const state = document.getElementById('f-state').value;
+    const method = document.querySelector('input[name="payment"]:checked');
+
+    if (!name || !phone || !address || !postcode || !state) {
+        alert('Please fill in all delivery details!');
+        return;
+    }
+    if (!method) {
+        alert('Please select a payment method!');
+        return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem('yw_cart') || '[]');
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    const total = subtotal + 5;
+    const orderId = 'YW-' + Date.now().toString().slice(-6);
+    const itemsList = cart.map(i => `${i.name} x${i.qty} (RM ${(i.price * i.qty).toFixed(2)})`).join(', ');
+
+    const orderData = {
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+        postcode: postcode,
+        state: state,
+        paymentMethod: method.value,
+        items: itemsList,
+        subtotal: subtotal.toFixed(2),
+        total: total.toFixed(2)
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbwo-w1x_VRxsxgIvKFBjdmRJJJbFvvn82hzzvrg43E74xJU1cMSFaTtuOYzKv1uXrh4/exec', {
+        method: 'POST',
+        body: JSON.stringify(orderData)
+    }).catch(err => console.error('Sheet logging failed:', err));
+
+    document.getElementById('modal-order-id').textContent = 'Order ID: ' + orderId;
+    document.getElementById('modal-total').textContent = 'Total Paid: RM ' + total.toFixed(2);
+    document.getElementById('success-modal').style.display = 'flex';
+
+    clearCart();
+}
+         
+         function clearCart() {
+           localStorage.removeItem('yw_cart');
+         }
+         
+         loadSummary();
+		 
+		 document.getElementById('success-modal').addEventListener('click', function(e){
+			if (e.target === this) {
+			this.style.display = 'none';
+			}
+			}); 
+      </script>
+   </body>
+</html>
